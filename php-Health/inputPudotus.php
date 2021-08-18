@@ -71,6 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $paino = $_POST['paino'];
         $reisi = $_POST['reisi'];
         $vyotaro = $_POST['vyotaro'];
+        $peff = $_POST['peff'];
         $rinta = $_POST['rinta'];
         $ylaPaine = $_POST['ylaPaine'];
         $alaPaine = $_POST['alaPaine'];
@@ -81,7 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         echo "Error: " . $sql . "<br>" . mysqli_error($con);
 
-        $query = "INSERT INTO Pudotus(paino, reisi, vyotaro, rinta, ylaPaine, alaPaine, pulssi, tulos) VALUES ('$paino', '$reisi', '$vyotaro', '$rinta','$ylaPaine','$alaPaine','$pulssi', 'Painoa tippunut $painonKehitys kg. $tulos')";
+        $query = "INSERT INTO Pudotus(paino, reisi, vyotaro, peff, rinta, ylaPaine, alaPaine, pulssi, tulos) VALUES ('$paino', '$reisi', '$vyotaro', '$peff', '$rinta','$ylaPaine','$alaPaine','$pulssi', 'Painoa tippunut $painonKehitys kg. $tulos')";
         //$date = date('Y-m-d H:i:s'); //not in use
         
         //echo 'query: '.$query.'<br>';
@@ -150,6 +151,10 @@ function test_input($data)
                             <p>
                             <label for="vyotaro">Vyotaro</label>
                             <input type="number" step = "0.1" name="vyotaro" value = 0>
+
+                            <p>
+                            <label for="peff">Peff</label>
+                            <input type="number" step = "0.1" name="peff" value = 0>
 
                             <p>
                             <label for="rinta">Rinta</label>

@@ -3,7 +3,7 @@
 
 <HEAD>
     <meta http-equiv="refresh" content="10" />
-    <LINK href="masterMoto.css" rel="stylesheet" type="text/css">
+    <LINK href="css/health.css" rel="stylesheet" type="text/css">
 </HEAD>
 
 <body>
@@ -21,7 +21,7 @@
     } else {
         print "<h2>Jounin Terveys Seuranta</h2>";
 
-        print "<table id = 'motoTable'>";
+        print "<table id = 'healthTable'>";
             print "<tr>";
                 print "<th>PVM</th>";
                 print "<th>Paino</th>";
@@ -107,7 +107,7 @@
                 $peffRes = "<td style=background-color:green>" . $db_field['peff'];
             }
 
-            print "<table id = 'mototable'";
+            print "<table id = 'healthTable'";
             print "<tr><td>" . $db_field['pvm'] . "</td>" . $painoRes . "</td>" . $reisiRes . "</td>" . $vyotaroRes .  "</td>" . $rintaRes . "</td>" . $ylaPaineRes . "</td>" . $alaPaineRes . "</td>" . $pulssiRes . "</td>" . $peffRes . "</td><td style='width:200px'>" . $tulosWrapped . "</td></tr>";
 
             print "</table>";

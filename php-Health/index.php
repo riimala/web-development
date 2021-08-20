@@ -4,6 +4,7 @@
 <HEAD>
     <meta http-equiv="refresh" content="10" />
     <LINK href="css/health.css" rel="stylesheet" type="text/css">
+    <title>Jounin Terveys Seuranta</title>
 </HEAD>
 
 <body>
@@ -19,21 +20,22 @@
     if (mysqli_num_rows($result) == 0) {
         print 'No results';
     } else {
-        print "<h2>Jounin Terveys Seuranta</h2>";
 
-        print "<table id = 'healthTable'>";
-            print "<tr>";
-                print "<th>PVM</th>";
-                print "<th>Paino</th>";
-                print "<th>Reisi</th>";
-                print "<th>Vyötärö</th>";
-                print "<th>Rinta</th>";
-                print "<th>Yläpaine</th>";
-                print "<th>Alapaine</th>";
-                print "<th>Pulssi</th>";
-                print "<th>Peff</th>";
-                print "<th style='width:200px'>Tulos</th>";
+        print "<table class = 'center'>";
+            print "<thead>";
+            print "<tr class = 'healthTable tr'>";
+                print "<th id = 'th0' style='width:80px'>PVM</th>";
+                print "<th id='th1' style='width:60px'>Paino</th>";
+                print "<th id='th2' style='width:60px'>Reisi</th>";
+                print "<th id='th3' style='width:60px'>Vyötärö</th>";
+                print "<th id='th4' style='width:60px'>Rinta</th>";
+                print "<th id='th5' style='width:60px'>Yläpaine</th>";
+                print "<th id='th6' style='width:60px'>Alapaine</th>";
+                print "<th id='th7' style='width:60px'>Pulssi</th>";
+                print "<th id='th8' style='width:60px'>Peff</th>";
+                print "<th id='th9' style='width:300px; text-align:left'>Tulos</th>";
         print "</tr>";
+        print "</thead>";
         print "</table>";
 
 
@@ -59,58 +61,60 @@
             $tulosWrapped = wordwrap($tulos, 200, "<br />\n");
 
             if ($paino > 80 || $paino == 0) {
-                $painoRes = "<td style=background-color:red>" . $db_field['paino'];
+                $painoRes = "<td id = 'th1' style=background-color:red;width:60px>" . $db_field['paino'];
             } else {
-                $painoRes = "<td style=background-color:green>" . $db_field['paino'];
+                $painoRes = "<td id = 'th1' style=background-color:green;width:60px>" . $db_field['paino'];
             }
 
             if ($reisi > 60 || $reisi == 0) {
-                $reisiRes = "<td style=background-color:red>" . $db_field['reisi'];
+                $reisiRes = "<td id = 'th2' style=background-color:red;width:60px>" . $db_field['reisi'];
             } else {
-                $reisiRes = "<td style=background-color:green>" . $db_field['reisi'];
+                $reisiRes = "<td id = 'th2' style=background-color:green;width:60px>" . $db_field['reisi'];
             }
 
             if ($rinta > 105 || $rinta == 0) {
-                $rintaRes = "<td style=background-color:red>" . $db_field['rinta'];
+                $rintaRes = "<td id = 'th3' style=background-color:red;width:60px>" . $db_field['rinta'];
             } else {
-                $rintaRes = "<td style=background-color:green>" . $db_field['rinta'];
+                $rintaRes = "<td id = 'th3' style=background-color:green;width:60px>" . $db_field['rinta'];
             }
 
-
             if ($vyotaro > 95  || $vyotaro == 0) {
-                $vyotaroRes = "<td style=background-color:red>" . $db_field['vyotaro'];
+                $vyotaroRes = "<td id = 'th4' style=background-color:red;width:60px>" . $db_field['vyotaro'];
             } else {
-                $vyotaroRes = "<td style=background-color:green>" . $db_field['vyotaro'];
+                $vyotaroRes = "<td id = 'th4' style=background-color:green;width:60px>" . $db_field['vyotaro'];
             }
 
             if ($ylaP > 139   || $ylaP == 0) {
-                $ylaPaineRes = "<td style=background-color:red>" . $db_field['ylaPaine'];
+                $ylaPaineRes = "<td id = 'th5' style=background-color:red;width:60px>" . $db_field['ylaPaine'];
             } else {
-                $ylaPaineRes = "<td style=background-color:green>" . $db_field['ylaPaine'];
+                $ylaPaineRes = "<td id = 'th5' style=background-color:green;width:60px>" . $db_field['ylaPaine'];
             }
 
             if ($alaP > 79   || $alaP == 0) {
-                $alaPaineRes = "<td style=background-color:red>" . $db_field['alaPaine'];
+                $alaPaineRes = "<td id = 'th6' style=background-color:red;width:60px>" . $db_field['alaPaine'];
             } else {
-                $alaPaineRes = "<td style=background-color:green>" . $db_field['alaPaine'];
+                $alaPaineRes = "<td id = 'th6' style=background-color:green;width:60px>" . $db_field['alaPaine'];
             }
 
             if ($pulssi > 51 || $pulssi == 0) {
-                $pulssiRes = "<td style=background-color:red>" . $db_field['pulssi'];
+                $pulssiRes = "<td id = 'th7' style=background-color:red;width:60px>" . $db_field['pulssi'];
             } else {
-                $pulssiRes = "<td style=background-color:green>" . $db_field['pulssi'];
+                $pulssiRes = "<td id = 'th7' style=background-color:green;width:60px>" . $db_field['pulssi'];
             }
 
             if ($peff < 610  || $peff == 0) {
-                $peffRes = "<td style=background-color:red>" . $db_field['peff'];
+                $peffRes = "<td id = 'th8' style=background-color:red;width:60px>" . $db_field['peff'];
             } else {
-                $peffRes = "<td style=background-color:green>" . $db_field['peff'];
+                $peffRes = "<td id = 'th8' style=background-color:green;width:60px>" . $db_field['peff'];
             }
 
-            print "<table id = 'healthTable'";
-            print "<tr><td>" . $db_field['pvm'] . "</td>" . $painoRes . "</td>" . $reisiRes . "</td>" . $vyotaroRes .  "</td>" . $rintaRes . "</td>" . $ylaPaineRes . "</td>" . $alaPaineRes . "</td>" . $pulssiRes . "</td>" . $peffRes . "</td><td style='width:200px'>" . $tulosWrapped . "</td></tr>";
-
+            $showMe = "<tr><td id = 'th0' style='width:80px'>" . $db_field['pvm'] . "</td>" . $painoRes . "</td>" . $reisiRes . "</td><td " . $vyotaroRes .  "</td>" . $rintaRes . "</td>" . $ylaPaineRes . "</td>" . $alaPaineRes . "</td>" . $pulssiRes . "</td>" . $peffRes . "</td><td id = 'th9' style='width:300px'>" . $tulosWrapped . "</td></tr>";
+            
+            print "<table style = 'margin-left:500px'>";
+                print "$showMe";
             print "</table>";
+
+        
         }
     }
 

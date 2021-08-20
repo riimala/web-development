@@ -4,47 +4,6 @@
     <meta charset="UTF-8">
     <LINK href="css/health.css" rel="stylesheet" type="text/css">
     
-    <!--<style>
-        .input {
-            display: block;
-            margin-left: 5cm;
-            width: 10px;
-        }
-
-        .form-style {
-            text-align: left;
-            display: inline-block;
-        }
-
-        .el02 {
-            /* Text and background colour, blue on light gray */
-            color: #00f;
-            background-color: #ddd;
-            font-weight: bold;
-        }
-
-        .center {
-            text-align: left;
-            margin: 0;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-        }
-
-        .fieldset {
-            margin-left: 2px;
-            margin-right: 2px;
-            padding-top: 0.35em;
-            padding-bottom: 0.625em;
-            padding-left: 0.75em;
-            padding-right: 0.75em;
-            border: 2px groove (internal value);
-            background-color: bisque;
-        }
-    </style>-->
-
     <script>
         // When the user clicks on <div>, open the popup
         var showNoteText = 0;
@@ -91,6 +50,13 @@
             $pulssi = $_POST['pulssi'];
             $tulos = $_POST['lisatietoja'];
 
+            if ($paino > 80){
+                $tulos = "Aika läski.";
+            }
+            else{
+                $tulos = "No nyt, pidä tämä.";
+            }
+
             $painonKehitys = $alkupaino - $paino;
 
             echo "Error: " . $sql . "<br>" . mysqli_error($con);
@@ -123,10 +89,9 @@
 
         </pre>
 
-        <div class="center">
+        <div>
             <div>
                 <fieldset>
-
                     <legend>
                         <?php $d = date('m-d-Y'); ?>
                     </legend>
